@@ -28,9 +28,7 @@ This application uses MySQL for its database. To setup the database set values f
 
 <code>
 DB_DATABASE=dummyDatabase <br/>
-
 DB_USERNAME=dummyUser <br/>
-
 DB_PASSWORD=123456
 </code>
 
