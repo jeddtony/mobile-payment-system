@@ -27,8 +27,10 @@ Run the command
 This application uses MySQL for its database. To setup the database set values for the database name, database user and the database password in the `.env` file. An example is given below
 
 <code>
-DB_DATABASE=dummyDatabase <br/>
-DB_USERNAME=dummyUser <br/>
+DB_DATABASE=dummyDatabase 
+
+DB_USERNAME=dummyUser
+
 DB_PASSWORD=123456
 </code>
 
