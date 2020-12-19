@@ -54,8 +54,9 @@ function App() {
      <Switch>
        <Route path="/" exact component={Login} />
        <Route path="/register" exact component={Register} />
-
+ 
        <Route path="/login" exact component={Login} />
+       <Authenticated>
        <Route path="/dashboard" component={getRole()? AdminDashboard: Dashboard} />
        <Route path="/users" exact component={ViewUsers} />
        <Route path="/users/create" component={CreateUser} />
@@ -86,7 +87,7 @@ function App() {
         <Route path="/complains" exact component={ViewComplaint} />
 
         <Route path="/complains/admin" exact component={AdminViewComplaint} />
-
+        </Authenticated>
        </Switch>
        </Suspense>
     </BrowserRouter>
@@ -95,7 +96,17 @@ function App() {
 
 export default App;
 
-const Authenticated = ({childredn}) => {
+const Authenticated = ({children}) => {
     let token = getToken();
+
+    return(
+      <>
+      {token? (
+        <>
+        {children}
+        </>
+      ): <Login />}
+      </>
+    )
 
 }

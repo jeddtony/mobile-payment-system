@@ -3,6 +3,7 @@ import { Row, Col, Form, Input, Button, Checkbox, Alert, Typography } from 'antd
 import 'antd/dist/antd.css';
 import {getLoginEmail, setLoginEmail, getLoginPassword, setLoginPassword} from '../../helpers'
 import './login.css';
+import {Link} from 'react-router-dom';
 
 import {useApi} from '../../context';
 
@@ -150,6 +151,8 @@ export default function Login() {
         <Button type="primary" htmlType="submit" loading={isLoading}>
           {!isLoading? 'Login' : 'Loading'}
         </Button>
+
+        <span style={{float: "right"}}><Link to="/register">Register</Link></span>
       </Form.Item>
     </Form>
   

@@ -24,7 +24,13 @@ const instance = axios.create({
     if(error.response.status === 401){
       return redirectToLogin();
     }
-      console.log(error);
+      // console.log(error);
+    else if (error.response.status == 422){
+     let  response = {message: 'Email or password already exists', status: 422, statusCode: 422};
+      return response
+    } else {
+      return {message: 'Cannot connect to server', status: 500, statusCode: 500}
+    }
   });
 function redirectToLogin() {
   let publicUrl = process.env.PUBLIC_URL;
@@ -47,7 +53,8 @@ function processResult (response) {
     } else if(status === 500){
       return {success: false, message: 'Cannot connect to the internet'}
     } 
-      return {success: false, message: response.data.message};
+    // console.log(response.data.message);
+      return {success: false, message: response.message};
    
     
 }
@@ -88,7 +95,7 @@ function postLogin(loginData) {
     }
 
     async function register(data) {
-        let results = await axios.post(apiUrl + "register", data);
+        let results = await instance.post(apiUrl + "register", data);
         // console.log(results);
         return processResult(results);
     }

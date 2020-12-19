@@ -4,7 +4,7 @@ import {ButtonLink, Drawer, PageTitle, ReactTable, NumberFormat, Modal} from '..
 import { UserOutlined, UnorderedListOutlined } from '@ant-design/icons';
 import {useOneUser, userOneUser} from '../../hooks';
 import {formatDate} from '../../helpers';
-import {MailOutlined, PhoneOutlined, WalletOutlined, UsergroupAddOutlined} from '@ant-design/icons'
+import {MailOutlined, PhoneOutlined, WalletOutlined, UsergroupDeleteOutlined} from '@ant-design/icons'
 import TopUp from "./modals/TopUp";
 
 const {Text, Title} = Typography
@@ -38,7 +38,7 @@ export default function UserDetail(props) {
                 <Divider />
     <StatCards label="Airtime Transfers" value={userAirtimeTransfer} icon={<UnorderedListOutlined style={{height: 'inherit'}}/>}/>
     <StatCards label="Data Transfers" value={userDataTransfer} icon={<WalletOutlined style={{height: 'inherit'}} />} />
-    <StatCards label=" Complains" value={userComplain}  icon={<UsergroupAddOutlined style={{height: 'inherit'}} />}/>
+    <StatCards label=" Complains" value={userComplain}  icon={<UsergroupDeleteOutlined style={{height: 'inherit'}} />}/>
 
             </Row>
             </Card>

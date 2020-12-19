@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Exception;
 use Facade\Ignition\Support\FakeComposer;
 use Faker\Factory;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -27,6 +28,9 @@ class AuthController extends Controller
        $faker = \Faker\Factory::create();
 
        $password = $faker->word(8);
+       try{
+
+       
         $user = User::create([
             'name' => $request->get('name'),
             'email' => $request->get('email'),
@@ -42,6 +46,10 @@ class AuthController extends Controller
         $message = 'Sign Up Successful';
 
         return response()->json(compact('data', 'message'), 200);
+    } catch(Exception $err){
+        $message = 'Email or Phone numbers already exists ';
+        return response()->json(compact('message'), 422);
+    }
     }
 
     /**

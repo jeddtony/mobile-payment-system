@@ -3,6 +3,7 @@ import { Row, Col, Form, Input, Button, Checkbox, Alert, Typography } from 'antd
 import 'antd/dist/antd.css';
 import {getLoginEmail, setLoginEmail, getLoginPassword, setLoginPassword} from '../../helpers'
 import './login.css';
+import {Link} from 'react-router-dom';
 
 import {useApi} from '../../context';
 
@@ -67,7 +68,7 @@ export default function Register() {
       }
       else{
         setIsFailed(true);
-        setMessage(results.data)
+        setMessage(results.message)
       }
     }
 
@@ -197,6 +198,8 @@ showIcon
         <Button type="primary" htmlType="submit" loading={isLoading}>
           {!isLoading? 'Sign Up' : 'Loading'}
         </Button>
+
+        <span style={{float: "right"}}><Link to="/login">Login</Link></span>
       </Form.Item>
     </Form>
   
