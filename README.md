@@ -24,7 +24,7 @@ Run the command
 
  to generate a secret key. This key is being used for authentication.
 
-This application uses MySQL for its database. To setup the database set values for the database name, database user and the database password in the `.env` file. An example is given below
+This application uses MySQL for its database. To setup the database set values for the database name, database user and the database password in the `.env` file. An example is given below. 
 
 ```
 DB_DATABASE=dummyDatabase 
@@ -60,5 +60,8 @@ Then run the command
 `npm run start:dev`
 
 This command starts the development server
+
+### Setting Up the Admin Account
+After running the migrations and creating a user account, in the `users` table in the database set the value for the property `is_admin` to 1 for any user that you want to assign admin privileges. This will enable admin features for that user.
 
 
